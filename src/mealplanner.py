@@ -1,13 +1,11 @@
 import argparse
+import os
 
 def create_parser():
     parser = argparse.ArgumentParser(
         prog="mealplanner",
         description="A meal planning application that helps you organize your weekly meals"
     )
-    
-    # required arguments
-    parser.add_argument("filename", help="Path to the meal plan file")
     
     # optional arguments
     parser.add_argument(
@@ -56,6 +54,7 @@ def create_parser():
         "--format",
         type=str,
         default="csv",
+        choices=["csv", "json", "md"],
         help="output format (csv, json, md)"
     )
     
@@ -64,12 +63,39 @@ def create_parser():
         action="store_true",
         help="generate a shopping list CSV for the meal plan"
     )
+    
+    parser.add_argument(
+        "-o", "--out",
+        type=str,
+        help="output file path (default: outputs/plan.[format])"
+    )
 
     return parser
+
+def get_output_path(args):
+    # default output path based on format
+    extensions = {
+        "csv": ".csv",
+        "json": ".json",
+        "md": ".md"
+    }
+    
+    if args.out:
+        # check if the provided path ends with any of the valid extensions
+        if not any(args.out.lower().endswith(ext) for ext in extensions.values()):
+            # if not, append the extension based on the format
+            return f"{args.out}{extensions[args.format]}"
+        return args.out
+    
+    #create outputs directory if it doesn't exist
+    os.makedirs("outputs", exist_ok=True)
+    
+    return f"outputs/mealplan{extensions[args.format]}"
 
 def main():
     parser = create_parser()
     args = parser.parse_args()
+    output = get_output_path(args)
     
 if __name__ == "__main__":
     main()
