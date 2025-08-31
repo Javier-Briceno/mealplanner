@@ -88,14 +88,18 @@ def get_output_path(args):
         return args.out
     
     #create outputs directory if it doesn't exist
-    os.makedirs("outputs", exist_ok=True)
+    os.makedirs("../outputs", exist_ok=True)
     
-    return f"outputs/mealplan{extensions[args.format]}"
+    return f"../outputs/mealplan{extensions[args.format]}"
 
 def main():
+    # create parser and parse arguments
     parser = create_parser()
     args = parser.parse_args()
+    
+    # get output path
     output = get_output_path(args)
+    
     
 if __name__ == "__main__":
     main()
