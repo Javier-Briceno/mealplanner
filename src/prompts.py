@@ -43,8 +43,7 @@ Output JSON schema (STRICT):
           "kcal": number,
           "protein": number,
           "carbs": number,
-          "fat": number,
-          "allergens": [string]
+          "fat": number
         }}
       ],
       "instructions": string
@@ -76,3 +75,4 @@ Rules:
         temperature=0.2,
         max_tokens=1500
     )
+    return response.choices[0].message.content
