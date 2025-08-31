@@ -1,5 +1,6 @@
 import argparse
 import os
+from logic import create_plan
 
 def create_parser():
     parser = argparse.ArgumentParser(
@@ -26,28 +27,28 @@ def create_parser():
         "-k", "--calories",
         type=int,
         default=2200,
-        help="target daily calories (e.g., 2200)"
+        help="target daily calories (default: 2200)"
     )
     
     parser.add_argument(
         "-p", "--protein",
         type=int,
         default=150,
-        help="target protein per day (g)"
+        help="target protein per day (default: 150g)"
     )
     
     parser.add_argument(
         "-c", "--carbs",
         type=int,
         default=250,
-        help="target carbs per day (g)"
+        help="target carbs per day (default: 250g)"
     )
     
     parser.add_argument(
         "-f", "--fat",
         type=int,
         default=67,
-        help="target fat per day (g)"
+        help="target fat per day (default: 67g)"
     )
     
     parser.add_argument(
@@ -99,6 +100,15 @@ def main():
     
     # get output path
     output = get_output_path(args)
+    
+    plan = create_plan(
+        days=args.days,
+        meals_per_day=args.meals_per_day,
+        goal_cals=args.calories,
+        goal_protein=args.protein,
+        goal_carbs=args.carbs,
+        goal_fat=args.fat
+    )
     
     
 if __name__ == "__main__":
