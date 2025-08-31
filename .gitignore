@@ -1,2 +1,8 @@
+# Ignore environment files and virtual environments
 .env
+# Ignore IDE specific files
 .vscode
+# Ignore Python bytecode files
+__pycache__/
+# Ignore virtual environment directories
+venv/
