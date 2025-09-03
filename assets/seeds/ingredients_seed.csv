@@ -1,0 +1,50 @@
+ingredient_id,name,category
+1,Apple,Fruit
+2,Banana,Fruit
+3,Orange,Fruit
+4,Strawberry,Fruit
+5,Blueberry,Fruit
+6,Tomato,Vegetable
+7,Potato,Vegetable
+8,Carrot,Vegetable
+9,Onion,Vegetable
+10,Garlic,Vegetable
+11,Spinach,Leafy Green
+12,Lettuce,Leafy Green
+13,Cucumber,Vegetable
+14,Pepper,Vegetable
+15,Chicken Breast,Meat
+16,Beef Steak,Meat
+17,Pork Chop,Meat
+18,Salmon,Fish
+19,Tuna,Fish
+20,Shrimp,Seafood
+21,Rice,Grain
+22,Pasta,Grain
+23,Bread,Bakery
+24,Oats,Grain
+25,Lentils,Legume
+26,Beans,Legume
+27,Chickpeas,Legume
+28,Tofu,Plant Protein
+29,Milk,Dairy
+30,Cheese,Dairy
+31,Yogurt,Dairy
+32,Egg,Protein
+33,Olive Oil,Oil/Fat
+34,Butter,Oil/Fat
+35,Honey,Sweetener
+36,Sugar,Sweetener
+37,Flour,Baking
+38,Almonds,Nut
+39,Walnuts,Nut
+40,Peanuts,Nut
+41,Cashews,Nut
+42,Chia Seeds,Seed
+43,Pumpkin Seeds,Seed
+44,Avocado,Fruit
+45,Cabbage,Vegetable
+46,Zucchini,Vegetable
+47,Eggplant,Vegetable
+48,Cauliflower,Vegetable
+49,Mushroom,Fungus

@@ -1,6 +1,6 @@
 import argparse
 import os
-from logic import create_plan
+from logic import create_plan, plan_to_json, Plan, add_ingredient_interactive, load_csv_to_table, init_unit_db, init_brand_db, init_product_db, init_ingredient_db
 
 def create_parser():
     parser = argparse.ArgumentParser(
@@ -64,11 +64,24 @@ def create_parser():
         action="store_true",
         help="generate a shopping list CSV for the meal plan"
     )
+
+    parser.add_argument(
+        "-r", "--add-recipe",
+        action="store_true",
+        help="add a new recipe to the database"
+    )
+    
+    parser.add_argument(
+        "-i", "--add-ingredient",
+        action="store_true",
+        help="add a new ingredient to the database"
+    )
     
     parser.add_argument(
         "-o", "--out",
         type=str,
-        help="output file path (default: outputs/plan.[format])"
+        default="../outputs/mealplan",
+        help="output file path (default: ../outputs/mealplan)"
     )
 
     return parser
@@ -101,15 +114,27 @@ def main():
     # get output path
     output = get_output_path(args)
     
-    plan = create_plan(
+    # seed database tables with CSV files
+    init_unit_db()
+    load_csv_to_table("../assets/seeds/units_seed.csv", "unit")
+    init_brand_db()
+    load_csv_to_table("../assets/seeds/brands_seed.csv", "brand")
+    init_ingredient_db()
+    load_csv_to_table("../assets/seeds/ingredients_seed.csv", "ingredient")
+    init_product_db()
+    load_csv_to_table("../assets/seeds/products_seed.csv", "product")
+    
+    """plan: Plan = create_plan(
         days=args.days,
         meals_per_day=args.meals_per_day,
-        goal_cals=args.calories,
-        goal_protein=args.protein,
-        goal_carbs=args.carbs,
-        goal_fat=args.fat
+        goal_cals_per_day=args.calories,
+        goal_protein_per_day=args.protein,
+        goal_carbs_per_day=args.carbs,
+        goal_fat_per_day=args.fat
     )
-    
-    
+
+    plan_to_json(plan, output)
+    """
+
 if __name__ == "__main__":
     main()

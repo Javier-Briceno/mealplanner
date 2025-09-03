@@ -1,0 +1,17 @@
+unit_id,name,abbreviation,kind
+1,gram,g,mass
+2,kilogram,kg,mass
+3,milligram,mg,mass
+4,pound,lb,mass
+5,ounce,oz,mass
+6,milliliter,ml,volume
+7,liter,l,volume
+8,cup,cup,volume
+9,tablespoon,tbsp,volume
+10,teaspoon,tsp,volume
+11,fluid ounce,fl oz,volume
+12,piece,pc,count
+13,slice,slice,count
+14,unit,unit,count
+15,item,item,count
+16,package,pkg,count
